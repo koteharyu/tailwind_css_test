@@ -1,24 +1,38 @@
-# README
+# Rails6 * Tailwind CSS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 1 gem
 
-Things you may want to cover:
+```
+gem 'tailwindcss-rails'
 
-* Ruby version
+$ bundle install
 
-* System dependencies
+$ bundle exec rails taildwindcss:install
+```
 
-* Configuration
+## 2 app/javascript/css/tailwindcss.css
 
-* Database creation
+`app/javascript/css/tailwindcss.css`ファイルを新規作成し、以下のようにする
 
-* Database initialization
+```
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+```
 
-* How to run the test suite
+## 3 app/javascript/packs/application.js
 
-* Services (job queues, cache servers, search engines, etc.)
+`app/javascript/packs/application.js`ファイルに以下の記述を追記する
 
-* Deployment instructions
+```
+import "../css/tailwindcss.css";
+mport "stylesheets/application"
+```
 
-* ...
+## 4 app/views/layouts/application
+
+`app/views/layouts/application`ファイル内のstylesheetをlinkから`pack`に変更する
+
+```
+<%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+```
