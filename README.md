@@ -26,7 +26,7 @@ $ bundle exec rails taildwindcss:install
 
 ```
 import "../css/tailwindcss.css";
-mport "stylesheets/application"
+import "stylesheets/application"
 ```
 
 ## 4 app/views/layouts/application
